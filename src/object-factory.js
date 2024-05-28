@@ -1,4 +1,4 @@
-import {Sprite, SpriteMaterial, Texture} from 'three';
+import {AxesHelper, Sprite, SpriteMaterial, Texture} from 'three';
 import {CSS2DObject} from 'three/examples/jsm/renderers/CSS2DRenderer.js';
 import $ from 'jquery';
 
@@ -17,6 +17,9 @@ const ObjectFactory = Object.freeze({
     createDom(htmlText) {
         return $(htmlText)[0]
     },
+    createAxesHelper(size) {
+        return new AxesHelper(size)
+    }
 })
 
 class TextureCanvas {
