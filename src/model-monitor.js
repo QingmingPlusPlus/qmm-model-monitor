@@ -81,9 +81,8 @@ class ModelMonitor {
         const rayCaster = new Raycaster();
         const mouse = new Vector2();
 
-        mouse.x = (e.clientX / width) * 2 - 1;
-        mouse.y = -(e.clientY / height) * 2 + 1;
-
+        mouse.x = (e.offsetX / width) * 2 - 1;
+        mouse.y = -(e.offsetY / height) * 2 + 1;
         rayCaster.setFromCamera(mouse, this.camera);
         const intersects = rayCaster.intersectObjects(this.scene.children, true);
         for (const i of intersects) {
