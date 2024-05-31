@@ -4,7 +4,7 @@ import {defineConfig} from 'vite'
 export default defineConfig({
     build: {
         lib: {
-            entry: resolve(__dirname, 'src/index.ts'),
+            entry: resolve(__dirname, 'src/lib/index.ts'),
             name: 'QMM',
             fileName: (format) => `qmm.${format}.min.js`
         }

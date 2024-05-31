@@ -41,6 +41,8 @@ class ModelMonitor {
         this.css2dRenderer.domElement.addEventListener('mouseleave', () => {
             this.css2dRenderer.domElement.removeEventListener('mousemove', mouseFn);
         })
+        // this.css2dRenderer.domElement.addEventListener('click', mouseFn);
+
     }
 
     //====================public====================
@@ -77,14 +79,18 @@ class ModelMonitor {
         if (!this.hoverHandler) return;
 
         e.preventDefault();
-        const width = (e.target as HTMLElement).clientWidth;
-        const height = (e.target as HTMLElement).clientHeight;
+        const width = this.css2dRenderer.domElement.clientWidth;
+        const height = this.css2dRenderer.domElement.clientHeight;
 
         const rayCaster = new Raycaster();
         const mouse = new Vector2();
 
-        mouse.x = (e.offsetX / width) * 2 - 1;
-        mouse.y = -(e.offsetY / height) * 2 + 1;
+        const x = e.clientX - this.css2dRenderer.domElement.getBoundingClientRect().left;
+        const y = e.clientY - this.css2dRenderer.domElement.getBoundingClientRect().top;
+
+        mouse.x = (x / width) * 2 - 1;
+        mouse.y = -(y / height) * 2 + 1;
+
         rayCaster.setFromCamera(mouse, this.camera);
         const intersects = rayCaster.intersectObjects(this.scene.children, true);
 

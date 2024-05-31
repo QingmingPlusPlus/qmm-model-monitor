@@ -10,3 +10,30 @@ body {
 
     position: relative;
 }
+
+
+.info {
+    display: flex;
+    justify-content: center;
+    background-color: #0568C3D9;
+    color: #ffffff;
+    padding: 2px;
+    border-radius: 2px;
+}
+
+.label {
+    margin-right: 15px;
+}
+
+.detail {
+    font-size: 14px;
+
+    width: 140px;
+    height: 125px;
+    padding: 8px 0 8px 12px;
+    background-image: url('img/infoBg.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    transform: translate(50%, -50%);
+}
