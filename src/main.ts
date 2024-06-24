@@ -1,6 +1,6 @@
 import './style.css'
 import {ModelLoader, ModelMonitor, ObjectFactory} from './lib';
-import {Object3D} from 'three';
+import {Light, Object3D} from 'three';
 import {CSS2DObject} from 'three/examples/jsm/renderers/CSS2DRenderer.d.ts';
 
 const app = document.getElementById('app');
@@ -28,7 +28,12 @@ const model = await modelLoader.loadGltf('/model-scene.glb')
 const envMap = await modelLoader.loadEnvMap('/env.hdr')
 modelMonitor.setEnvMap(envMap)
 modelMonitor.addObject(model.scene);
-
+// modelMonitor.scene.traverse(c=>{
+//     //@ts-ignore
+//     if (c.isLight){
+//         (c as Light).intensity*=2
+//     }
+// })
 //加载设备并构建map
 const devMap: Map<string, Object3D> = new Map()
 const deviceSubScene = await modelLoader.loadGltf('/model-dev.glb')
